@@ -96,3 +96,60 @@ export function handleActionTabClicks(state) {
         });
     });
 }
+import { getConversion, saveHistory, getHistory } from "./api.js";
+import { applyConversion, compareValues, performArithmetic } from "./conversion.js";
+import { showResult } from "./ui.js";
+
+export async function calculate(state) {
+    try {
+        if (!state.fromUnit || !state.toUnit) return;
+        if (state.fromVal === null || state.toVal === null) return;
+
+        let result = null;
+        let expression = "";
+
+        if (state.action === "Conversion") {
+            const conv = await getConversion(state.fromUnit, state.toUnit);
+            result = applyConversion(state.fromVal, conv);
+            expression = `${state.fromVal} ${state.fromUnit} → ${state.toUnit}`;
+            showResult(result, state.toUnit);
+        }
+
+        else if (state.action === "Comparison") {
+            const conv1 = await getConversion(state.fromUnit, state.fromUnit);
+            const conv2 = await getConversion(state.toUnit, state.fromUnit);
+
+            const base1 = applyConversion(state.fromVal, conv1);
+            const base2 = applyConversion(state.toVal, conv2);
+
+            result = compareValues(state.fromVal, state.fromUnit, state.toVal, state.toUnit, base1, base2);
+            expression = `${state.fromVal} ${state.fromUnit} ? ${state.toVal} ${state.toUnit}`;
+            showResult(result, "");
+        }
+
+        else {
+            const conv = await getConversion(state.toUnit, state.fromUnit);
+            const v2norm = applyConversion(state.toVal, conv);
+
+            result = performArithmetic(state.fromVal, v2norm, state.operator);
+            expression = `${state.fromVal} ${state.fromUnit} ${state.operator} ${state.toVal} ${state.toUnit}`;
+            showResult(result, state.fromUnit);
+        }
+
+        const record = {
+            type: state.type,
+            action: state.action,
+            expression,
+            result,
+            timestamp: new Date().toISOString()
+        };
+
+        await saveHistory(record);
+        const history = await getHistory();
+        const { renderHistory } = await import("./ui.js");
+        renderHistory(history);
+
+    } catch (e) {
+        showResult("Error: " + e.message, "");
+    }
+}
