@@ -79,3 +79,20 @@ export function handleTypeCardClicks(state) {
         });
     });
 }
+import { setActive, toggleOperators, showResult } from "./ui.js";
+
+export function handleActionTabClicks(state) {
+    const actionSelector = document.querySelector("#action-selector");
+
+    document.querySelectorAll(".action-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+            state.action = btn.dataset.action;
+
+            setActive(actionSelector, btn, ".action-btn");
+
+            toggleOperators(state.action === "Arithmetic");
+
+            showResult(0, "");
+        });
+    });
+}
