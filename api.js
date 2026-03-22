@@ -24,3 +24,8 @@ export async function saveHistory(record) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
 }
+export async function getHistory() {
+    const res = await fetch(`${BASE_URL}/history?_sort=timestamp&_order=desc`);
+    if (!res.ok) return [];
+    return await res.json();
+}
