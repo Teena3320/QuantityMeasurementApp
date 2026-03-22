@@ -25,3 +25,19 @@ export function compareValues(v1, u1, v2, u2, base1, base2) {
 
     return `${v1} ${u1} is EQUAL to ${v2} ${u2}`;
 }
+export function performArithmetic(v1, v2normalised, op) {
+    if (op === "+") {
+        return parseFloat((v1 + v2normalised).toFixed(6));
+    }
+    if (op === "-") {
+        return parseFloat((v1 - v2normalised).toFixed(6));
+    }
+    if (op === "*") {
+        return parseFloat((v1 * v2normalised).toFixed(6));
+    }
+    if (op === "/") {
+        if (v2normalised === 0) throw new Error("Divide by zero");
+        return parseFloat((v1 / v2normalised).toFixed(6));
+    }
+    throw new Error("Unknown operator");
+}
