@@ -1,0 +1,61 @@
+{
+  "units": [
+    { "id": 1, "type": "Length", "label": "Millimeter", "symbol": "mm" },
+    { "id": 2, "type": "Length", "label": "Centimeter", "symbol": "cm" },
+    { "id": 3, "type": "Length", "label": "Meter", "symbol": "m" },
+    { "id": 4, "type": "Length", "label": "Kilometer", "symbol": "km" },
+    { "id": 5, "type": "Length", "label": "Inch", "symbol": "in" },
+    { "id": 6, "type": "Length", "label": "Foot", "symbol": "ft" },
+    { "id": 7, "type": "Length", "label": "Yard", "symbol": "yd" },
+    { "id": 8, "type": "Length", "label": "Mile", "symbol": "mi" },
+
+    { "id": 9, "type": "Temperature", "label": "Celsius", "symbol": "C" },
+    { "id": 10, "type": "Temperature", "label": "Fahrenheit", "symbol": "F" },
+    { "id": 11, "type": "Temperature", "label": "Kelvin", "symbol": "K" },
+
+    { "id": 12, "type": "Volume", "label": "Milliliter", "symbol": "mL" },
+    { "id": 13, "type": "Volume", "label": "Liter", "symbol": "L" },
+    { "id": 14, "type": "Volume", "label": "Cubic Meter", "symbol": "m3" },
+    { "id": 15, "type": "Volume", "label": "Teaspoon", "symbol": "tsp" },
+    { "id": 16, "type": "Volume", "label": "Tablespoon", "symbol": "tbsp" },
+    { "id": 17, "type": "Volume", "label": "Fluid Ounce", "symbol": "floz" },
+    { "id": 18, "type": "Volume", "label": "Cup", "symbol": "cup" },
+    { "id": 19, "type": "Volume", "label": "Pint", "symbol": "pt" },
+    { "id": 20, "type": "Volume", "label": "Quart", "symbol": "qt" },
+    { "id": 21, "type": "Volume", "label": "Gallon", "symbol": "gal" },
+
+    { "id": 22, "type": "Weight", "label": "Milligram", "symbol": "mg" },
+    { "id": 23, "type": "Weight", "label": "Gram", "symbol": "g" },
+    { "id": 24, "type": "Weight", "label": "Kilogram", "symbol": "kg" },
+    { "id": 25, "type": "Weight", "label": "Metric Ton", "symbol": "t" },
+    { "id": 26, "type": "Weight", "label": "Ounce", "symbol": "oz" },
+    { "id": 27, "type": "Weight", "label": "Pound", "symbol": "lb" },
+    { "id": 28, "type": "Weight", "label": "Stone", "symbol": "st" }
+  ],
+
+  "conversions": [
+    { "id": 1, "from": "km", "to": "m", "factor": 1000, "formula": null },
+    { "id": 2, "from": "m", "to": "cm", "factor": 100, "formula": null },
+    { "id": 3, "from": "cm", "to": "mm", "factor": 10, "formula": null },
+    { "id": 4, "from": "m", "to": "km", "factor": 0.001, "formula": null },
+    { "id": 5, "from": "in", "to": "cm", "factor": 2.54, "formula": null },
+    { "id": 6, "from": "ft", "to": "m", "factor": 0.3048, "formula": null },
+
+    { "id": 7, "from": "mL", "to": "L", "factor": 0.001, "formula": null },
+    { "id": 8, "from": "L", "to": "m3", "factor": 0.001, "formula": null },
+    { "id": 9, "from": "cup", "to": "mL", "factor": 236.588, "formula": null },
+
+    { "id": 10, "from": "g", "to": "kg", "factor": 0.001, "formula": null },
+    { "id": 11, "from": "kg", "to": "g", "factor": 1000, "formula": null },
+    { "id": 12, "from": "lb", "to": "kg", "factor": 0.453592, "formula": null },
+
+    { "id": 13, "from": "C", "to": "F", "factor": null, "formula": "(x*9/5)+32" },
+    { "id": 14, "from": "F", "to": "C", "factor": null, "formula": "(x-32)*5/9" },
+    { "id": 15, "from": "C", "to": "K", "factor": null, "formula": "x+273.15" },
+    { "id": 16, "from": "K", "to": "C", "factor": null, "formula": "x-273.15" },
+    { "id": 17, "from": "F", "to": "K", "factor": null, "formula": "((x-32)*5/9)+273.15" },
+    { "id": 18, "from": "K", "to": "F", "factor": null, "formula": "((x-273.15)*9/5)+32" }
+  ],
+
+  "history": []
+}
