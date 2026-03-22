@@ -48,3 +48,20 @@ export function toggleOperators(show) {
     if (!el) return;
     el.style.display = show ? "flex" : "none";
 }
+export function renderHistory(records) {
+    const list = document.querySelector("#history-list");
+    if (!list) return;
+
+    list.innerHTML = "";
+
+    if (!records || !records.length) {
+        list.innerHTML = "<li>No history yet.</li>";
+        return;
+    }
+
+    records.forEach(r => {
+        const li = document.createElement("li");
+        li.textContent = `${r.expression} = ${r.result} (${new Date(r.timestamp).toLocaleString()})`;
+        list.appendChild(li);
+    });
+}
