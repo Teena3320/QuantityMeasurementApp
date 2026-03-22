@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quantify • Unit Converter</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <meta name="description" content="A clean, responsive unit converter for length, temperature, volume, and weight." />
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo"> Quantify</div>
+    <p class="tag">Same idea, fresh look — convert units instantly.</p>
+  </header>
+
+  <main class="app">
+    <nav class="tabs" role="tablist" aria-label="Conversion categories">
+      <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-length" id="tab-length">📏 Length</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-temperature" id="tab-temperature">🌡️ Temperature</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-volume" id="tab-volume">🧪 Volume</button>
+      <button class="tab" role="tab" aria-selected="false" aria-controls="panel-weight" id="tab-weight">⚖️ Weight</button>
+    </nav>
+
+    <section class="panel is-active" role="tabpanel" id="panel-length" aria-labelledby="tab-length">
+      <h2>Length Converter</h2>
+      <div class="converter">
+        <div class="io">
+          <label for="len-from-value">From</label>
+          <div class="row">
+            <input id="len-from-value" type="number" inputmode="decimal" placeholder="0" value="1" />
+            <select id="len-from-unit" aria-label="From unit">
+              <option value="mm">Millimeter (mm)</option>
+              <option value="cm">Centimeter (cm)</option>
+              <option value="m" selected>Meter (m)</option>
+              <option value="km">Kilometer (km)</option>
+              <option value="in">Inch (in)</option>
+              <option value="ft">Foot (ft)</option>
+              <option value="yd">Yard (yd)</option>
+              <option value="mi">Mile (mi)</option>
+            </select>
+          </div>
+        </div>
+        <button class="swap" data-for="length" aria-label="Swap units" title="Swap units">⇄</button>
+        <div class="io">
+          <label for="len-to-value">To</label>
+          <div class="row">
+            <input id="len-to-value" type="text" placeholder="0" readonly />
+            <select id="len-to-unit" aria-label="To unit">
+              <option value="mm">Millimeter (mm)</option>
+              <option value="cm">Centimeter (cm)</option>
+              <option value="m">Meter (m)</option>
+              <option value="km">Kilometer (km)</option>
+              <option value="in" selected>Inch (in)</option>
+              <option value="ft">Foot (ft)</option>
+              <option value="yd">Yard (yd)</option>
+              <option value="mi">Mile (mi)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" role="tabpanel" id="panel-temperature" aria-labelledby="tab-temperature" hidden>
+      <h2>Temperature Converter</h2>
+      <div class="converter">
+        <div class="io">
+          <label for="tmp-from-value">From</label>
+          <div class="row">
+            <input id="tmp-from-value" type="number" inputmode="decimal" placeholder="0" value="0" />
+            <select id="tmp-from-unit" aria-label="From unit">
+              <option value="C" selected>Celsius (°C)</option>
+              <option value="F">Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+        </div>
+        <button class="swap" data-for="temperature" aria-label="Swap units" title="Swap units">⇄</button>
+        <div class="io">
+          <label for="tmp-to-value">To</label>
+          <div class="row">
+            <input id="tmp-to-value" type="text" placeholder="0" readonly />
+            <select id="tmp-to-unit" aria-label="To unit">
+              <option value="C">Celsius (°C)</option>
+              <option value="F" selected>Fahrenheit (°F)</option>
+              <option value="K">Kelvin (K)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" role="tabpanel" id="panel-volume" aria-labelledby="tab-volume" hidden>
+      <h2>Volume Converter</h2>
+      <div class="converter">
+        <div class="io">
+          <label for="vol-from-value">From</label>
+          <div class="row">
+            <input id="vol-from-value" type="number" inputmode="decimal" placeholder="0" value="1" />
+            <select id="vol-from-unit" aria-label="From unit">
+              <option value="mL">Milliliter (mL)</option>
+              <option value="L" selected>Liter (L)</option>
+              <option value="m3">Cubic meter (m³)</option>
+              <option value="tsp">Teaspoon (tsp)</option>
+              <option value="tbsp">Tablespoon (tbsp)</option>
+              <option value="floz">Fluid ounce (fl oz)</option>
+              <option value="cup">Cup</option>
+              <option value="pt">Pint (pt)</option>
+              <option value="qt">Quart (qt)</option>
+              <option value="gal">Gallon (gal)</option>
+            </select>
+          </div>
+        </div>
+        <button class="swap" data-for="volume" aria-label="Swap units" title="Swap units">⇄</button>
+        <div class="io">
+          <label for="vol-to-value">To</label>
+          <div class="row">
+            <input id="vol-to-value" type="text" placeholder="0" readonly />
+            <select id="vol-to-unit" aria-label="To unit">
+              <option value="mL">Milliliter (mL)</option>
+              <option value="L">Liter (L)</option>
+              <option value="m3">Cubic meter (m³)</option>
+              <option value="tsp">Teaspoon (tsp)</option>
+              <option value="tbsp">Tablespoon (tbsp)</option>
+              <option value="floz">Fluid ounce (fl oz)</option>
+              <option value="cup" selected>Cup</option>
+              <option value="pt">Pint (pt)</option>
+              <option value="qt">Quart (qt)</option>
+              <option value="gal">Gallon (gal)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" role="tabpanel" id="panel-weight" aria-labelledby="tab-weight" hidden>
+      <h2>Weight Converter</h2>
+      <div class="converter">
+        <div class="io">
+          <label for="wgt-from-value">From</label>
+          <div class="row">
+            <input id="wgt-from-value" type="number" inputmode="decimal" placeholder="0" value="1" />
+            <select id="wgt-from-unit" aria-label="From unit">
+              <option value="mg">Milligram (mg)</option>
+              <option value="g">Gram (g)</option>
+              <option value="kg" selected>Kilogram (kg)</option>
+              <option value="t">Metric ton (t)</option>
+              <option value="oz">Ounce (oz)</option>
+              <option value="lb">Pound (lb)</option>
+              <option value="st">Stone (st)</option>
+            </select>
+          </div>
+        </div>
+        <button class="swap" data-for="weight" aria-label="Swap units" title="Swap units">⇄</button>
+        <div class="io">
+          <label for="wgt-to-value">To</label>
+          <div class="row">
+            <input id="wgt-to-value" type="text" placeholder="0" readonly />
+            <select id="wgt-to-unit" aria-label="To unit">
+              <option value="mg">Milligram (mg)</option>
+              <option value="g" selected>Gram (g)</option>
+              <option value="kg">Kilogram (kg)</option>
+              <option value="t">Metric ton (t)</option>
+              <option value="oz">Ounce (oz)</option>
+              <option value="lb">Pound (lb)</option>
+              <option value="st">Stone (st)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>© 2026 Quantify — A minimal unit converter (HTML/CSS/JS). Theme: teal × purple with glass cards.</small>
+  </footer>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('is-active')); 
+        panels.forEach(p => { p.classList.remove('is-active'); p.hidden = true; });
+        tab.classList.add('is-active');
+        const panel = document.getElementById(tab.getAttribute('aria-controls'));
+        panel.classList.add('is-active');
+        panel.hidden = false;
+      });
+    });
+
+    const unitData = {
+      length: {
+        base: 'm',
+        toBase: {
+          mm: v => v * 0.001,
+          cm: v => v * 0.01,
+          m:  v => v,
+          km: v => v * 1000,
+          in: v => v * 0.0254,
+          ft: v => v * 0.3048,
+          yd: v => v * 0.9144,
+          mi: v => v * 1609.344,
+        },
+        fromBase: {
+          mm: v => v / 0.001,
+          cm: v => v / 0.01,
+          m:  v => v,
+          km: v => v / 1000,
+          in: v => v / 0.0254,
+          ft: v => v / 0.3048,
+          yd: v => v / 0.9144,
+          mi: v => v / 1609.344,
+        }
+      },
+      volume: {
+        base: 'L',
+        toBase: {
+          mL:  v => v * 0.001,
+          L:   v => v,
+          m3:  v => v * 1000, 
+          tsp: v => v * 0.00492892159375,
+          tbsp:v => v * 0.01478676478125,
+          floz:v => v * 0.0295735295625,
+          cup: v => v * 0.2365882365,
+          pt:  v => v * 0.473176473,
+          qt:  v => v * 0.946352946,
+          gal: v => v * 3.785411784,
+        },
+        fromBase: {
+          mL:  v => v / 0.001,
+          L:   v => v,
+          m3:  v => v / 1000,
+          tsp: v => v / 0.00492892159375,
+          tbsp:v => v / 0.01478676478125,
+          floz:v => v / 0.0295735295625,
+          cup: v => v / 0.2365882365,
+          pt:  v => v / 0.473176473,
+          qt:  v => v / 0.946352946,
+          gal: v => v / 3.785411784,
+        }
+      },
+      weight: {
+        base: 'kg',
+        toBase: {
+          mg: v => v * 1e-6,
+          g:  v => v * 1e-3,
+          kg: v => v,
+          t:  v => v * 1000,
+          oz: v => v * 0.028349523125,
+          lb: v => v * 0.45359237,
+          st: v => v * 6.35029318,
+        },
+        fromBase: {
+          mg: v => v / 1e-6,
+          g:  v => v / 1e-3,
+          kg: v => v,
+          t:  v => v / 1000,
+          oz: v => v / 0.028349523125,
+          lb: v => v / 0.45359237,
+          st: v => v / 6.35029318,
+        }
+      }
+    };
+
+    function convertLinear(category, value, fromUnit, toUnit) {
+      if (Number.isNaN(value)) return '';
+      const base = unitData[category].toBase[fromUnit](value);
+      const out  = unitData[category].fromBase[toUnit](base);
+      return out;
+    }
+
+    function convertTemperature(value, from, to) {
+      if (Number.isNaN(value)) return '';
+      let c;
+      if (from === 'C') c = value;
+      else if (from === 'F') c = (value - 32) * 5/9;
+      else if (from === 'K') c = value - 273.15;
+      else return '';
+      if (to === 'C') return c;
+      if (to === 'F') return (c * 9/5) + 32;
+      if (to === 'K') return c + 273.15;
+      return '';
+    }
+
+    function wireLinear(category, ids) {
+      const fromValue = document.getElementById(ids.fromValue);
+      const fromUnit  = document.getElementById(ids.fromUnit);
+      const toValue   = document.getElementById(ids.toValue);
+      const toUnit    = document.getElementById(ids.toUnit);
+      const swapBtn   = document.querySelector(`.swap[data-for="${category}"]`);
+
+      function update() {
+        const v = parseFloat(fromValue.value);
+        const res = convertLinear(category, v, fromUnit.value, toUnit.value);
+        toValue.value = res === '' ? '' : formatNumber(res);
+      }
+      fromValue.addEventListener('input', update);
+      fromUnit.addEventListener('change', update);
+      toUnit.addEventListener('change', update);
+      swapBtn.addEventListener('click', () => {
+        const uFrom = fromUnit.value;
+        fromUnit.value = toUnit.value;
+        toUnit.value = uFrom;
+        update();
+      });
+      update();
+    }
+
+    function wireTemperature(ids) {
+      const fromValue = document.getElementById(ids.fromValue);
+      const fromUnit  = document.getElementById(ids.fromUnit);
+      const toValue   = document.getElementById(ids.toValue);
+      const toUnit    = document.getElementById(ids.toUnit);
+      const swapBtn   = document.querySelector('.swap[data-for="temperature"]');
+
+      function update() {
+        const v = parseFloat(fromValue.value);
+        const res = convertTemperature(v, fromUnit.value, toUnit.value);
+        toValue.value = res === '' ? '' : formatNumber(res);
+      }
+      fromValue.addEventListener('input', update);
+      fromUnit.addEventListener('change', update);
+      toUnit.addEventListener('change', update);
+      swapBtn.addEventListener('click', () => {
+        const uFrom = fromUnit.value;
+        fromUnit.value = toUnit.value;
+        toUnit.value = uFrom;
+        update();
+      });
+      update();
+    }
+
+    function formatNumber(n) {
+      if (!isFinite(n)) return '';
+      const abs = Math.abs(n);
+      if ((abs !== 0 && (abs < 1e-4 || abs >= 1e7))) {
+        return n.toExponential(6);
+      }
+      return Number(n.toPrecision(10)).toString();
+    }
+
+    wireLinear('length', {
+      fromValue: 'len-from-value', fromUnit: 'len-from-unit',
+      toValue: 'len-to-value', toUnit: 'len-to-unit'
+    });
+    wireTemperature({
+      fromValue: 'tmp-from-value', fromUnit: 'tmp-from-unit',
+      toValue: 'tmp-to-value', toUnit: 'tmp-to-unit'
+    });
+    wireLinear('volume', {
+      fromValue: 'vol-from-value', fromUnit: 'vol-from-unit',
+      toValue: 'vol-to-value', toUnit: 'vol-to-unit'
+    });
+    wireLinear('weight', {
+      fromValue: 'wgt-from-value', fromUnit: 'wgt-from-unit',
+      toValue: 'wgt-to-value', toUnit: 'wgt-to-unit'
+    });
+  </script>
+</body>
+</html>
