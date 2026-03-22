@@ -25,3 +25,21 @@ export function setActive(parentEl, clickedEl, childSelector) {
 
     clickedEl.classList.add("active");
 }
+export function showResult(value, unitSymbol) {
+    const valEl = document.querySelector("#result-value");
+    const unitEl = document.querySelector("#result-unit");
+
+    if (value === null) {
+        valEl.textContent = "—";
+        unitEl.textContent = "";
+        return;
+    }
+
+    valEl.textContent = value;
+    unitEl.textContent = unitSymbol || "";
+
+    valEl.classList.add("highlight");
+    setTimeout(() => {
+        valEl.classList.remove("highlight");
+    }, 1500);
+}
