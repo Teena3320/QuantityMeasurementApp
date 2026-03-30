@@ -1,0 +1,8 @@
+### UC7 – Apply Conversion
+- Applies numeric conversion using:
+  - Multiplication factor **OR**
+  - Formula string (for temperature)
+- Rounds results to 6 decimal places
+- Validates numeric input before processing
+
+---
